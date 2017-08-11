@@ -16,6 +16,7 @@ public class Student {
 	
 	private String firstName;
 	private String lastName;
+	private String email;
 	private String country;
 	private TravelOptionType travelBy;
 	private List<TravelOptionType> travelTypes;
@@ -23,13 +24,11 @@ public class Student {
 	private String[] vacationType;
 	private List<VacationType> vacationTypes;
 	
-	public Student() {
-		
-	}
+	public Student() {}
 	
 	@PostConstruct
 	private void init(){
-		System.out.println(">>>The init has been called!<<<");
+		System.out.println(">>>The init method has been called!<<<");
 		travelTypes = populateTravelTypes();
 		vacationTypes = populateVacationTypes();
 		firstName = "Gogu";
@@ -39,7 +38,7 @@ public class Student {
 	
 	@PreDestroy
 	private void destroy(){
-		System.out.println(">>>The destroy has been called!<<<");
+		System.out.println(">>>The destroy method has been called!<<<");
 		firstName = null;
 		lastName = null;
 		country = null;
@@ -61,6 +60,14 @@ public class Student {
 		return vacationTypes;
 	}
 			
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String[] getVacationType() {
 		return vacationType;
 	}

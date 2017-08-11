@@ -6,17 +6,33 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
 	<title>SimpleForm2</title>
+	<style>
+		.error{
+			color: red;
+		}
+	</style>
 </h:head>
 <h:body>
 	<h:form>
 		<table>
 			<tr>
+				<td colspan="2"><h:messages styleClass="error" /> </td>
+			</tr>
+			<tr>
 				<td><h:outputLabel>First name: </h:outputLabel></td>
-				<td><h:inputText id="firstName" value="#{student.firstName}" /></td>
+				<td><h:inputText id="firstName" value="#{student.firstName}" label="firstName" required="true"/></td>
 			</tr>
 			<tr>
 				<td><h:outputLabel>Last name: </h:outputLabel></td>
-				<td><h:inputText id="lastName" value="#{student.lastName}" /></td>
+				<td><h:inputText id="lastName" value="#{student.lastName}" label="lastName" required="true"/></td>	
+			</tr>
+			<tr>
+				<td>
+					<h:outputLabel>Email: </h:outputLabel>
+				</td>
+				<td>
+					<h:inputText id="email" value="#{student.email}" label="Email" required="true" />
+				</td> 
 			</tr>
 			<tr>
 				<td><h:outputLabel>Country: </h:outputLabel></td>
@@ -33,7 +49,6 @@
 					</h:selectOneMenu>
 				</td>
 			</tr>
-			
 			<tr>
 				<td>
 					<h:commandButton value="SUBMIT" action="student_confirm" />
