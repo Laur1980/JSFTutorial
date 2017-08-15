@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>ResponsePage</title>
+	<style>
+		.error{
+			color: red;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form>
+    	<table>
+    	<tr>
+    		<td>
+    			<h:outputLabel>First name: </h:outputLabel>
+    		</td>
+    		<td>
+    			<h:inputText id="first_name" 
+    						 value="#{person.firstName}" 
+    						 label="firstName" 
+    						 required="true"
+    						 requiredMessage="Please complete the field with your first name!">
+    			</h:inputText>
+    		</td>
+    		<td>
+    			<h:message for="first_name" styleClass="error" />
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<h:outputLabel>Last name: </h:outputLabel>
+    		</td>
+    		<td>
+    			<h:inputText id="last_name" 
+    						 value="#{person.lastName}" 
+    						 label="lastName" 
+    						 required="true"
+    						 requiredMessage="Please complete the field with your last name!">
+    			</h:inputText>
+    		</td>
+    		<td>
+    			<h:message for="last_name" styleClass="error" />
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<h:outputLabel>Free passes: </h:outputLabel>
+    		</td>
+    		<td>
+    			<h:inputText id="free_passes" 
+    						 value="#{person.freePasses}" 
+    						 label="freePasses" 
+    						 required="true" 
+    						 validatorMessage="Please complete the field with values between 0 and 10!">
+    				<f:validateLongRange minimum="0" maximum="10" />
+    			</h:inputText>
+    		</td>
+    		<td>
+    			<h:message for="free_passes" styleClass="error" />
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<h:outputLabel>Postal code: </h:outputLabel>
+    		</td>
+    		<td>
+    			<h:inputText id="postal_code" 
+    						 value="#{person.postalCode}" 
+    						 label="postalCode" 
+    						 required="true" 
+    						 validatorMessage="The given value must have 5 digits!">
+    				<f:validateLength minimum="5" maximum="5" />
+    			</h:inputText>
+    		</td>
+    		<td>
+    			<h:message for="postal_code" styleClass="error" />
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<h:outputLabel>Phone number: </h:outputLabel>
+    		</td>
+    		<td>
+    			<h:inputText id="phone_number"
+    						 value="#{person.phoneNumber}"
+    						 label="phoneNumber"
+    						 required="true"
+    						 validatorMessage="the phone number must have a format similar to this one: xxx-xxx-xxxx">
+    				<f:validateRegex pattern="\d{3}-\d{3}-\d{4}" />
+    			</h:inputText>
+    		</td>
+    		<td>
+    			<h:message for="phone_number" styleClass="error"/>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<h:outputLabel>Special code: </h:outputLabel>
+    		</td>
+    		<td>
+    			<h:inputText value="#{person.specialCode}"
+    						 label="Special Code"
+    						 id="special_code"
+    						 validator="#{person.validateSpecialCode}" 
+    						 required="true"
+    						 requiredMessage="Please complete the field with the special code!"/>
+    		</td>
+    		<td>
+    			<h:message for="special_code" styleClass="error"/>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td><h:commandButton value="SUBMIT" action="person_response" /></td>
+    	</tr>
+    	</table>  		
+    </h:form>
+</h:body>
+</html>

@@ -15,24 +15,40 @@
 <h:body>
 	<h:form>
 		<table>
-			<tr>
+			<!-- <tr>
 				<td colspan="2"><h:messages styleClass="error" /> </td>
-			</tr>
+			</tr> -->
 			<tr>
 				<td><h:outputLabel>First name: </h:outputLabel></td>
-				<td><h:inputText id="firstName" value="#{student.firstName}" label="firstName" required="true"/></td>
+				<td><h:inputText id="first_Name" 
+								 value="#{student.firstName}" 
+								 label="firstName" 
+								 required="true"
+								 requiredMessage="Please type in your first name!"/>
+				</td>
+				<td><h:message for="first_Name" styleClass="error"/></td>
 			</tr>
 			<tr>
 				<td><h:outputLabel>Last name: </h:outputLabel></td>
-				<td><h:inputText id="lastName" value="#{student.lastName}" label="lastName" required="true"/></td>	
+				<td><h:inputText id="last_name" 
+								 value="#{student.lastName}" 
+								 label="lastName" 
+								 required="true"
+								 requiredMessage="Please type in your last name!"/></td>
+				<td><h:message for="last_name" styleClass="error"/></td>	
 			</tr>
 			<tr>
 				<td>
 					<h:outputLabel>Email: </h:outputLabel>
 				</td>
 				<td>
-					<h:inputText id="email" value="#{student.email}" label="Email" required="true" />
+					<h:inputText id="email" 
+								value="#{student.email}" 
+								label="Email" 
+								required="true" 
+								 requiredMessage="Please type in your email!"/>
 				</td> 
+				<td><h:message for="email" styleClass="error"/></td>
 			</tr>
 			<tr>
 				<td><h:outputLabel>Country: </h:outputLabel></td>

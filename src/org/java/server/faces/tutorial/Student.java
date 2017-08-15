@@ -6,11 +6,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 
 
-@ViewScoped
+
 @ManagedBean(name="student")
 public class Student {
 	
@@ -25,7 +24,13 @@ public class Student {
 	private List<VacationType> vacationTypes;
 	
 	public Student() {}
-	
+		
+	public Student(String firstName, String lastName, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
+
 	@PostConstruct
 	private void init(){
 		System.out.println(">>>The init method has been called!<<<");
@@ -173,6 +178,11 @@ public class Student {
 		} else if (!travelTypes.equals(other.travelTypes))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 	
 }

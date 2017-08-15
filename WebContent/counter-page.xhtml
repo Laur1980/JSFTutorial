@@ -8,9 +8,9 @@
 	<title>ResponsePage</title>
 </h:head>
 <h:body>
-	<h1>Hello World</h1>
+		<h:outputText value="The value of the counter is: #{theCounter.counter}"/>
 	<h:form>
-      		Hello, #{theUserName}
+      		<h:commandButton value="INCRESE" action="#{theCounter.incrementCounter()}" />
     </h:form>
 </h:body>
 </html>
